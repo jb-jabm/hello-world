@@ -1,27 +1,9 @@
 <?php
-// include "config.php";
-// include "utils.php";
-
-$db = [
-  'host' => 'localhost',
-  'username' => 'root',
-  'password' => 'root',
-  'db' => 'baseprueba' //Cambiar al nombre de tu base de datos
-];
+include "config.php";
+include "utils.php";
 
 
-try {
-  $conn = new PDO("mysql:host={$db['host']};dbname={$db['db']}", $db['username'], $db['password']);
-
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-  return $dbConn;
-} catch (PDOException $exception) {
-  exit($exception->getMessage());
-}
-
-// $dbConn = connect($db);
+$dbConn =  connect($db);
 
 /*
   listar todos los posts o solo uno
