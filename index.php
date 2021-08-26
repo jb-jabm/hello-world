@@ -1,37 +1,35 @@
-<?php 
-  header ("HTTP/1.1 200");
-  include 'utils.php';
-  include 'config.php'; 
-  $dbConn = connect($db);
-   
-  /*
-  listar todos los posts o solo uno
- */
-if ($_SERVER['REQUEST_METHOD'] == 'GET')
-{
-  // var_dump($_GET);
-    if (isset($_GET['codigo']))
-    {
-      //Mostrar un post
-      $sql = $dbConn->prepare("SELECT * FROM articulo where codigo=:codigo");
-      $sql->bindValue(':codigo', $_GET['codigo']);
-      $sql->execute();
-      header("HTTP/1.1 200 OK");
-      echo json_encode(  $sql->fetch(PDO::FETCH_ASSOC)  );
-      exit();
-	  }
-    
-    else {
-      $sql = $dbConn->prepare("SELECT * FROM articulo");
-      $sql->execute();
-      $sql->setFetchMode(PDO::FETCH_ASSOC);
-      // print_r($sql->fetchAll());
-      header("HTTP/1.1 200 OK");
-      echo json_encode( $sql->fetchAll()  );
-      exit();
-	}
-}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-?>
+  <script src="utils.js"></script>
+</head>
 
+<body>
+  <div class="container">
+    <div class="row" style="padding: 50px">
+      <div class="col-md offset-md-1">
+        <button type="button" class="btn btn-primary">Registrar</button>
+
+      </div>
+      <div class="col-md-6 offset-md-1">
+        <input type="text" id="buscar" class="form-control" placeholder="Buscar articulo" aria-label="Buscar Articulo">
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-primary" onclick="capturarBusqueda()">Buscar</button>
+      </div>
+    </div>
+    <div class="row" style:="margin-top 20 px">
+
+    </div>
+
+  </div>
+</body>
+
+</html>
