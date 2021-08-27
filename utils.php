@@ -13,7 +13,7 @@
       } catch (PDOException $exception) {
           exit($exception->getMessage());
       }
-  }
+   
 
 
  //Obtener parametros para updates
@@ -36,4 +36,5 @@
 		}
 		return $statement;
    }
+  }
  ?>

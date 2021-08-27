@@ -12,6 +12,18 @@
 </head>
 
 <body>
+    <?php include "templates/header.php"; ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                 <a href="crear.php"  class="btn btn-primary mt-4">Agregar Articulo</a>
+                 <hr>
+            </div>
+        </div>
+    </div>
+      <!-- Aquí el código HTML de la aplicación -->
+    <?php include "templates/footer.php"; ?>
+
   <div class="container">
     <div class="row" style="padding: 50px">
       <div class="col-md offset-md-1">
