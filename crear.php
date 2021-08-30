@@ -1,7 +1,6 @@
 <?php
 include 'utils.php';
 include 'config.php';
-include 'funciones.php';
 $dbConn = connect($db);
 
 if (isset($_POST['submit'])) {
@@ -28,6 +27,7 @@ if (isset($_POST['submit'])) {
 
 if (isset($resultado)) {
 ?>
+
   <div class="container mt-3">
     <div class="row">
       <div class="col-md-12">
@@ -38,11 +38,13 @@ if (isset($resultado)) {
     </div>
   </div>
 <?php
+
 }
 ?>
-
 <div class="container">
   <div class="row">
+
+   
     <div class="col-md-12">
       <h2 class="mt-4">Agregar articulo</h2>
       <hr>
